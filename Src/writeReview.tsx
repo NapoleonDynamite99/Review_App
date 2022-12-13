@@ -28,11 +28,12 @@ export default function App({route,navigation}) {
     
     return (
         <View style={styles.body}>
-            <Text style={{fontSize:18,fontWeight:'bold'}}>Movie:{Movie.Title}</Text>
+            <Text style={{fontSize:18,fontWeight:'bold',color:'black'}}>Movie:{Movie.Title}</Text>
             <TextInput
                 multiline={true}
                 numberOfLines={15}
                 style={styles.textinp}
+                placeholderTextColor={'gray'}
                 onChangeText={setReview}
                 placeholder="Movie Name"></TextInput>
             <Button onPress={() => {

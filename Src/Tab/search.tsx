@@ -75,6 +75,8 @@ export default function App({navigation}) {
                 <TextInput
                     style={styles.textinp}
                     onChangeText={setMovieName}
+                    placeholderTextColor={'gray'}
+
                     placeholder="Movie Name"></TextInput>
                 <Button onPress={getMovie} title="Search"></Button>
 
@@ -124,6 +126,7 @@ const styles = StyleSheet.create({
         borderWidth: 5,
         borderColor: 'red',
         padding: 10,
+        color:'black',
         backgroundColor: 'white',
     },
     title: {

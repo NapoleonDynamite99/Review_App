@@ -26,7 +26,7 @@ const CustomCard = ({ item }) => {
                 </View>
 
                 <Text style={styles.Reviewtext}>Review</Text>
-                <Text style={{padding:10}}>{item.Review}</Text>
+                <Text style={{padding:10,color:'black'}}>{item.Review}</Text>
             </View>
         </View>
 
