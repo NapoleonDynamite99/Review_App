@@ -11,7 +11,7 @@ import {
     Image,
 } from 'react-native';
 
-var MovieList = ({ item }) => {
+var MovieList = ({ item,navigation }) => {
     return (
         <View style={styles.movies}>
             <Text style={styles.title}>{item.Title}</Text>
@@ -44,7 +44,7 @@ var MovieList = ({ item }) => {
             <View style={{margin:10}}>
                 <Button
                     onPress={() => {
-                        alert('Working');
+                        navigation.navigate('writeReview',item)
                     }}
                     title="write review"
                 />
@@ -53,7 +53,7 @@ var MovieList = ({ item }) => {
     );
 };
 
-export default function App() {
+export default function App({navigation}) {
     const [movie, setMovie] = useState({});
     const [movieName, setMovieName] = useState('');
     const [visible, setVisible] = useState(false);
@@ -63,8 +63,9 @@ export default function App() {
             .then(res => res.json())
             .then(json => {
                 console.log(json);
-                setVisible(true);
                 setMovie([json]);
+                setVisible(true);
+                
             });
     };
 
@@ -78,7 +79,7 @@ export default function App() {
                 <Button onPress={getMovie} title="Search"></Button>
 
                 <Modal visible={visible} animationType="slide">
-                    <FlatList data={movie} renderItem={MovieList}></FlatList>
+                    <FlatList data={movie}  renderItem={({item,index})=><MovieList item={item} navigation={navigation} />}></FlatList>
 
                     <Button
                         onPress={() => {

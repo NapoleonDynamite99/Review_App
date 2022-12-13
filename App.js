@@ -29,7 +29,7 @@ const AppStarting = ({navigation}) => {
             screenOptions={{
               headerShown: false,
             }}
-            initialRouteName="writeReview">
+            initialRouteName="tabs">
             <Stack.Screen name="tabs" component={search} />
             <Stack.Screen name="writeReview" component={writeReview} />
           </Stack.Navigator>
